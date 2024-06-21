@@ -33,7 +33,13 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   function createBoard() {
     let initialBoard = [];
-    // TODO: create array-of-arrays of true/false values
+    for(let row = 0; row < nrows; row++){
+      let currentRow = [];
+      for(let col=0; col<ncols; col++){
+        currentRow.push(Math.Random() < chanceLightStartsOn)
+      }
+      initialBoard.push(currentRow);
+    }
     return initialBoard;
   }
 
